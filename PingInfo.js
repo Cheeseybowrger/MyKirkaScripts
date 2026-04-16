@@ -15,7 +15,7 @@
 	var offsetX = 0,
 		offsetY = 0;
 
-	// null means "not yet saved" — we'll default to right side in setupPanel
+	
 	var lastLeft = localStorage.getItem('ovl_left') ? parseFloat(localStorage.getItem('ovl_left')) : null;
 	var lastTop  = localStorage.getItem('ovl_top')  ? parseFloat(localStorage.getItem('ovl_top'))  : null;
 
@@ -54,7 +54,7 @@
 		removePanel();
 		currentPanel = el;
 
-		// Force a layout pass so offsetWidth is accurate for right-side default
+		
 		currentPanel.style.position = 'fixed';
 		currentPanel.style.visibility = 'hidden';
 		document.body.appendChild(currentPanel);
@@ -62,7 +62,7 @@
 		var panelWidth  = currentPanel.offsetWidth  || 200;
 		var panelHeight = currentPanel.offsetHeight || 100;
 
-		// Default to top-right with a small margin if no saved position
+		
 		var defaultLeft = window.innerWidth  - panelWidth  - 16;
 		var defaultTop  = 16;
 
@@ -84,7 +84,7 @@
 			evt.stopPropagation();
 		});
 
-		// Only bind the MutationObserver once
+		
 		if (!mutationBound) {
 			mutationBound = true;
 			var timer = null;
